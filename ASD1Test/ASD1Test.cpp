@@ -19,6 +19,7 @@ namespace AiSD1test
 		TEST_METHOD_CLEANUP(cleanUp)
 		{
 			delete test1;
+			delete test2;
 		}
 
 		TEST_METHOD(back_first)
