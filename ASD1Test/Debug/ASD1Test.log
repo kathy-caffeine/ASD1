@@ -1,0 +1,5 @@
+﻿  pch.cpp
+  ASD1Test.cpp
+     Создается библиотека C:\Users\User\source\repos\3sem\ASD\ASD1\Debug\ASD1Test.lib и объект C:\Users\User\source\repos\3sem\ASD\ASD1\Debug\ASD1Test.exp
+ASD1Test.obj : error LNK2019: ссылка на неразрешенный внешний символ "public: void __thiscall LinkedList::push_back(int)" (?push_back@LinkedList@@QAEXH@Z) в функции "public: void __thiscall ASD1Test::ASD1Test::TestMethod1(void)" (?TestMethod1@ASD1Test@1@QAEXXZ)
+C:\Users\User\source\repos\3sem\ASD\ASD1\Debug\ASD1Test.dll : fatal error LNK1120: неразрешенных внешних элементов: 1
