@@ -55,17 +55,12 @@ void LinkedList::push_front(int newElem) // add in the beginning
 
 void LinkedList::pop_back() // delete last
 {
-	if (size == 0) return;
-
 	if (size == 1) {
 		delete head;
 		reset_list();
 	}
 	else {
-		Node* current = head;
-		while (current->next != tail) {
-			current = current->next;
-		}
+		Node* current = tail->prev;
 		current->next = nullptr;
 		delete tail;
 		tail = current;
@@ -75,7 +70,10 @@ void LinkedList::pop_back() // delete last
 
 void LinkedList::pop_front() // delete first
 {
-	if (size == 0) return;  //error (?)
+	if (size == 1) {
+		delete head;
+		reset_list();
+	}
 	else {
 		head = head->next;
 		delete head->prev;

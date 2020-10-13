@@ -1,5 +1,4 @@
-﻿  pch.cpp
-  ASD1Test.cpp
+﻿  ASD1Test.cpp
      Создается библиотека C:\Users\User\source\repos\3sem\ASD\ASD1\x64\Debug\ASD1Test.lib и объект C:\Users\User\source\repos\3sem\ASD\ASD1\x64\Debug\ASD1Test.exp
 ASD1Test.obj : error LNK2019: ссылка на неразрешенный внешний символ "public: __cdecl LinkedList::LinkedList(void)" (??0LinkedList@@QEAA@XZ) в функции "public: void __cdecl AiSD1test::AiSD1test::setUp(void)" (?setUp@AiSD1test@1@QEAAXXZ)
 ASD1Test.obj : error LNK2019: ссылка на неразрешенный внешний символ "public: void __cdecl LinkedList::push_back(int)" (?push_back@LinkedList@@QEAAXH@Z) в функции "public: void __cdecl AiSD1test::AiSD1test::InsertBackList(void)" (?InsertBackList@AiSD1test@1@QEAAXXZ)

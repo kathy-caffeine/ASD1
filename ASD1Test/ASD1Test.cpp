@@ -51,13 +51,13 @@ namespace AiSD1test
 			test1->push_front(0);
 			test1->push_back(2);
 			test1->pop_back();
-			Assert::AreEqual((int)test1->get_size() - 1, 2);
+			Assert::AreEqual((int)test1->get_size(), 2);
 		}
 		TEST_METHOD(pop_back_zero)
 		{
 			test1->push_back(1);
 			test1->pop_back();
-			Assert::AreEqual((int)test1->get_size() - 1, 0);
+			Assert::AreEqual((int)test1->get_size(), 0);
 		}
 		TEST_METHOD(pop_front_first)
 		{
@@ -65,13 +65,13 @@ namespace AiSD1test
 			test1->push_front(0);
 			test1->push_back(2);
 			test1->pop_front();
-			Assert::AreEqual((int)test1->get_size() - 1, 2);
+			Assert::AreEqual((int)test1->get_size(), 2);
 		}
 		TEST_METHOD(pop_front_zero)
 		{
 			test1->push_back(1);
 			test1->pop_front();
-			Assert::AreEqual((int)test1->get_size() - 1, 0);
+			Assert::AreEqual((int)test1->get_size(), 0);
 		}
 		TEST_METHOD(insertelem_first)
 		{
@@ -94,7 +94,7 @@ namespace AiSD1test
 			test1->push_back(1);
 			test1->push_front(0);
 			test1->push_back(2);
-			test1->insert(0, (int)test1->get_size() - 1);
+			test1->insert(10, (int)test1->get_size() - 1);
 			Assert::AreEqual(test1->at((int)test1->get_size() - 1), 10);
 		}
 		TEST_METHOD(at_correct_index_second)
@@ -127,7 +127,7 @@ namespace AiSD1test
 			test1->push_back(1);
 			test1->push_back(2);
 			test1->remove(0);
-			Assert::AreEqual((int)test1->get_size() - 1, 2);
+			Assert::AreEqual((int)test1->get_size(), 2);
 		}
 		TEST_METHOD(remove_last)
 		{
@@ -135,7 +135,7 @@ namespace AiSD1test
 			test1->push_back(1);
 			test1->push_back(2);
 			test1->remove((int)test1->get_size());
-			Assert::AreEqual((int)test1->get_size() - 1, 2);
+			Assert::AreEqual((int)test1->get_size(), 2);
 		}
 		TEST_METHOD(remove_mid)
 		{
@@ -149,7 +149,7 @@ namespace AiSD1test
 		{
 			test1->push_front(0);
 			test1->remove(0);
-			Assert::AreEqual((int)test1->get_size() - 1, 0);
+			Assert::AreEqual((int)test1->get_size(), 0);
 		}
 		TEST_METHOD(size_mid)
 		{
@@ -157,7 +157,7 @@ namespace AiSD1test
 			test1->push_back(1);
 			test1->push_back(2);
 			test1->insert(10, 1);
-			Assert::AreEqual((int)test1->get_size() - 1, 4);
+			Assert::AreEqual((int)test1->get_size(), 4);
 		}
 		TEST_METHOD(clear)
 		{
@@ -166,14 +166,14 @@ namespace AiSD1test
 			test1->push_back(2);
 			test1->insert(10, 1);
 			test1->clear();
-			Assert::AreEqual((int)test1->get_size() - 1, 0);
+			Assert::AreEqual((int)test1->get_size(), 0);
 		}
 		TEST_METHOD(set_mid)
 		{
 			test1->push_front(0);
 			test1->push_back(1);
 			test1->push_back(2);
-			test1->set(10, 1);
+			test1->set(1, 10);
 			Assert::AreEqual(test1->at(1), 10);
 		}
 		TEST_METHOD(set_front)
@@ -181,7 +181,7 @@ namespace AiSD1test
 			test1->push_front(0);
 			test1->push_back(1);
 			test1->push_back(2);
-			test1->set(10, 0);
+			test1->set(0, 10);
 			Assert::AreEqual(test1->at(0), 10);
 		}
 		TEST_METHOD(set_back)
@@ -216,7 +216,7 @@ namespace AiSD1test
 			test2->push_back(1);
 			test2->push_back(2);
 			test1->insert(*test2, 0);
-			Assert::AreEqual((int)test1->get_size() - 1, 6);
+			Assert::AreEqual((int)test1->get_size(), 6);
 		}
 		TEST_METHOD(InsertMidList)
 		{
@@ -227,7 +227,7 @@ namespace AiSD1test
 			test2->push_back(1);
 			test2->push_back(2);
 			test1->insert(*test2, 0);
-			Assert::AreEqual((int)test1->get_size() - 1, 6);
+			Assert::AreEqual((int)test1->get_size(), 6);
 		}
 		TEST_METHOD(InsertBackList)
 		{
@@ -238,7 +238,7 @@ namespace AiSD1test
 			test2->push_back(1);
 			test2->push_back(2);
 			test1->insert(*test2, 0);
-			Assert::AreEqual((int)test1->get_size() - 1, 6);
+			Assert::AreEqual((int)test1->get_size(), 6);
 		}
 		TEST_METHOD(at_incorrect_index)
 		{
@@ -266,15 +266,6 @@ namespace AiSD1test
 			}
 			catch (std::out_of_range e) {
 				Assert::AreEqual("Segmentation fault", e.what());
-			}
-		}
-		TEST_METHOD(test_Remove_incorrect_index)
-		{
-			try {
-				test1->remove(-1);
-			}
-			catch (std::out_of_range e) {
-				Assert::AreEqual("Index is greater than list size", e.what());
 			}
 		}
 		TEST_METHOD(test_Insert_incorrect_index)

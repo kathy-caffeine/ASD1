@@ -13,12 +13,10 @@ int main() {
 	test.push_back(8);
 	test.push_back(9);
 	test.push_back(10);
-	LinkedList test2;
-	test2.push_front(10);
-	test2.push_back(11);
-	test.insert(test2, 1);
+	test.remove(0);
+	test.remove(1);
+	test.remove((int)test.get_size()-1);
 	//testing print_to_console method (:
-	test2.print_to_console();
-	
+	test.print_to_console();
 	return 0;
 }
