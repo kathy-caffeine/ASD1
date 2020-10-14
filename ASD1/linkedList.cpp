@@ -17,10 +17,7 @@ LinkedList::LinkedList()
 	reset_list();
 }
 
-LinkedList::~LinkedList()
-{
-	clear();
-}
+LinkedList::~LinkedList() {}
 
 void LinkedList::add_first(int newElem)
 {
@@ -223,10 +220,16 @@ void LinkedList::insert(LinkedList newList, int index)
 		head = newList.head;
 		size = size + newList.get_size();
 	}
+	else if (index == size - 1) {
+		tail->next = newList.head;
+		newList.head->prev = tail;
+		tail = newList.tail;
+		size = size + newList.get_size();
+	}
 	else {
 		Node* tmp = head;
 		int counter = index;
-		while (counter - 1)
+		while (counter)
 		{
 			tmp = tmp->next;
 			counter--;

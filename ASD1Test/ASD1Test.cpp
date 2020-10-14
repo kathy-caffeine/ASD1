@@ -157,8 +157,7 @@ namespace AiSD1test
 			test1->push_front(0);
 			test1->push_back(1);
 			test1->push_back(2);
-			test1->insert(10, 1);
-			Assert::AreEqual((int)test1->get_size(), 4);
+			Assert::AreEqual((int)test1->get_size(), 3);
 		}
 		TEST_METHOD(clear)
 		{
@@ -227,7 +226,7 @@ namespace AiSD1test
 			test2->push_front(0);
 			test2->push_back(1);
 			test2->push_back(2);
-			test1->insert(*test2, 0);
+			test1->insert(*test2, 1);
 			Assert::AreEqual((int)test1->get_size(), 6);
 		}
 		TEST_METHOD(InsertBackList)
@@ -238,7 +237,7 @@ namespace AiSD1test
 			test2->push_front(0);
 			test2->push_back(1);
 			test2->push_back(2);
-			test1->insert(*test2, 0);
+			test1->insert(*test2, (int)test1->get_size()-1);
 			Assert::AreEqual((int)test1->get_size(), 6);
 		}
 		TEST_METHOD(at_incorrect_index)
