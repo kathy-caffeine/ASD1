@@ -1,5 +1,5 @@
-#include <stdexcept>
-#include <string>
+//#include <stdexcept>
+//#include <string>
 #include<iostream>
 #include "LinkedList.h"
 
@@ -14,10 +14,12 @@ void LinkedList::reset_list()
 
 LinkedList::LinkedList()
 {
-	//reset_list();
-	head = nullptr;
-	tail = nullptr;
-	size = 0;
+	reset_list();
+}
+
+LinkedList::~LinkedList()
+{
+	clear();
 }
 
 void LinkedList::add_first(int newElem)
@@ -64,8 +66,8 @@ void LinkedList::pop_back() // delete last
 		current->next = nullptr;
 		delete tail;
 		tail = current;
+		size--;
 	}
-	size--;
 }
 
 void LinkedList::pop_front() // delete first
@@ -104,6 +106,7 @@ void LinkedList::insert(int newElem, int index) // add #index
 		add->prev = tmp;
 		add->next = tmp->next;
 		tmp->next = add;
+		size++;
 	}
 }
 
@@ -148,6 +151,7 @@ void LinkedList::remove(int index)
 		tmp->prev->next = tmp->next;
 		tmp->next->prev = tmp->prev;
 		delete tmp;
+		size--;
 	}
 }
 
@@ -158,6 +162,7 @@ size_t LinkedList::get_size() const
 
 void LinkedList::print_to_console()
 {
+	cout << "Size is " << size << endl;
 	if (size != 0) {
 		Node* tmp = head;
 		do {

@@ -31,6 +31,7 @@ private:
 public:
 
 	LinkedList();
+	~LinkedList();
 
 	void push_back(int newElem);
 	void push_front(int newElem);

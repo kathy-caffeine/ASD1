@@ -1,3 +1,4 @@
+
 #include "pch.h"
 #include "CppUnitTest.h"
 #include"../ASD1/linkedList.h"
@@ -134,7 +135,7 @@ namespace AiSD1test
 			test1->push_front(0);
 			test1->push_back(1);
 			test1->push_back(2);
-			test1->remove((int)test1->get_size());
+			test1->remove((int)test1->get_size()-1);
 			Assert::AreEqual((int)test1->get_size(), 2);
 		}
 		TEST_METHOD(remove_mid)
@@ -189,7 +190,7 @@ namespace AiSD1test
 			test1->push_front(0);
 			test1->push_back(1);
 			test1->push_back(2);
-			test1->set((int)test1->get_size() - 1, 0);
+			test1->set((int)test1->get_size() - 1, 10);
 			Assert::AreEqual(test1->at((int)test1->get_size() - 1), 10);
 		}
 		TEST_METHOD(isEmptyFalse)
@@ -249,24 +250,6 @@ namespace AiSD1test
 				Assert::AreEqual("Index is greater than list size", e.what());
 			}
 
-		}
-		TEST_METHOD(test_PopBackFromEmpty)
-		{
-			try {
-				test1->pop_back();
-			}
-			catch (std::out_of_range e) {
-				Assert::AreEqual("Segmentation fault", e.what());
-			}
-		}
-		TEST_METHOD(test_PopFrontFromEmpty)
-		{
-			try {
-				test1->pop_front();
-			}
-			catch (std::out_of_range e) {
-				Assert::AreEqual("Segmentation fault", e.what());
-			}
 		}
 		TEST_METHOD(test_Insert_incorrect_index)
 		{
