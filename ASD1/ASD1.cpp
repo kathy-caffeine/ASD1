@@ -7,12 +7,11 @@ int main() {
 	test1->push_back(1);
 	test1->push_back(2);
 	test1->print_to_console();
-	/*LinkedList test;
-	test.push_front(0);
-	test.push_back(1);
-	test.push_back(2);
+	LinkedList test;
+	test.push_front(10);
+	test.push_back(11);
+	test.push_back(22);
 	test.insert(10, 1);
-	test.clear();
 	test.push_front(0);
 	test.push_back(1);
 	test.push_back(2);
@@ -26,7 +25,7 @@ int main() {
 	test.push_back(10);
 	test.remove(0);
 	test.remove(1);
-	test.remove((int)test.get_size()-1);*/
-	//testing print_to_console method (:
+	test.remove((int)test.get_size()-1);
+	test.print_to_console();
 	return 0;
 }

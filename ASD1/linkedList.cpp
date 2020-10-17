@@ -82,21 +82,21 @@ void LinkedList::pop_front() // delete first
 
 void LinkedList::insert(int newElem, int index) // add #index
 {
-	Node* add = new Node(newElem);
-	Node* tmp = head;
 	if (index > size - 1) {
 		throw out_of_range("Index is greater than list size");
 	}
-	else if (index < 0) {
+	if (index < 0) {
 		throw out_of_range("Index is less than zero");
 	}
-	else if (index == 0) { // newElem - new head
+	if (index == 0) { // newElem - new head
 		push_front(newElem);
 	}
 	else if (index == size - 1) { // newElem - new tail
 		push_back(newElem);
 	}
 	else {
+		Node* add = new Node(newElem);
+		Node* tmp = head;
 		for (int i = 1; i < index - 1; i++) {
 			tmp = tmp->next;
 		} // tmp - before adding
@@ -202,8 +202,7 @@ void LinkedList::set(int index, int newElem)
 
 bool LinkedList::isEmpty()
 {
-	if (head == nullptr) return true;
-	else return false;
+	return (head==nullptr);
 }
 
 void LinkedList::insert(LinkedList newList, int index)

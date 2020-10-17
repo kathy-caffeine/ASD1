@@ -144,7 +144,7 @@ namespace AiSD1test
 			test1->push_back(1);
 			test1->push_back(2);
 			test1->remove(1);
-			Assert::AreEqual((int)test1->get_size() - 1, 2);
+			Assert::AreEqual((int)test1->get_size(), 2);
 		}
 		TEST_METHOD(size_zero)
 		{
@@ -164,7 +164,6 @@ namespace AiSD1test
 			test1->push_front(0);
 			test1->push_back(1);
 			test1->push_back(2);
-			test1->insert(10, 1);
 			test1->clear();
 			Assert::AreEqual((int)test1->get_size(), 0);
 		}
