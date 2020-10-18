@@ -27,5 +27,7 @@ int main() {
 	test.remove(1);
 	test.remove((int)test.get_size()-1);
 	test.print_to_console();
+	test.clear();
+	test.print_to_console();
 	return 0;
 }

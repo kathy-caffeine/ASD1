@@ -17,7 +17,15 @@ LinkedList::LinkedList()
 	reset_list();
 }
 
-LinkedList::~LinkedList() {}
+LinkedList::~LinkedList() {
+	if (head) {
+		while (head->next) {
+			head = head->next;
+			delete head->prev;
+		}
+		reset_list();
+	}
+}
 
 void LinkedList::add_first(int newElem)
 {
