@@ -62,6 +62,9 @@ void LinkedList::push_front(int newElem) // add in the beginning
 
 void LinkedList::pop_back() // delete last
 {
+	if (size == 0) {
+		throw out_of_range("Nothing to delete");
+	}
 	if (size == 1) {
 		delete head;
 		reset_list();
@@ -77,6 +80,9 @@ void LinkedList::pop_back() // delete last
 
 void LinkedList::pop_front() // delete first
 {
+	if (size == 0) {
+		throw out_of_range("Nothing to delete");
+	}
 	if (size == 1) {
 		delete head;
 		reset_list();
@@ -120,18 +126,16 @@ int LinkedList::at(size_t index) const // find data from #index
 	if (index >= size) {
 		throw out_of_range("Index is greater than list size");
 	}
-	else if (index < 0) {
+	if (index < 0) {
 		throw out_of_range("Index is less than zero");
 	}
-	else {
-		size_t counter = 0;
-		Node* current = head;
-		while (counter != index) {
-			current = current->next;
-			counter++;
-		}
-		return current->data;
+	size_t counter = 0;
+	Node* current = head;
+	while (counter != index) {
+		current = current->next;
+		counter++;
 	}
+	return current->data;
 }
 
 void LinkedList::remove(int index)
@@ -140,10 +144,10 @@ void LinkedList::remove(int index)
 	if (index > size - 1) {
 		throw out_of_range("Index is greater than list size");
 	}
-	else if (index < 0) {
+	if (index < 0) {
 		throw out_of_range("Index is less than zero");
 	}
-	else if (index == 0) { // delete head
+	if (index == 0) { // delete head
 		pop_front();
 	}
 	else if (index == size - 1) { // delete tail
@@ -193,14 +197,14 @@ void LinkedList::clear()
 
 void LinkedList::set(int index, int newElem)
 {
-	Node* tmp = head;
 	if (index > size - 1) {
 		throw out_of_range("Index is greater than list size");
 	}
-	else if (index < 0) {
+	if (index < 0) {
 		throw out_of_range("Index is less than zero");
 	}
 	else {
+		Node* tmp = head;
 		for (int i = 0; i < index; i++) {
 			tmp = tmp->next;
 		}
@@ -218,10 +222,10 @@ void LinkedList::insert(LinkedList newList, int index)
 	if (index > size - 1) {
 		throw out_of_range("Index is greater than list size");
 	}
-	else if (index < 0) {
+	if (index < 0) {
 		throw out_of_range("Index is less than zero");
 	}
-	else if (index == 0) {
+	if (index == 0) {
 		newList.tail->next = head;
 		head->prev = newList.tail;
 		head = newList.head;
